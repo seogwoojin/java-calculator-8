@@ -15,14 +15,26 @@
 
 ### 2. **숫자 추출 (Number Extraction)**
 
+## 2-1. 토큰화 (Tokenizer)
+
 - [ ] 입력 문자열을 구분자로 분리한다.
-- [ ] 각 토큰이 올바른 정수인지 검증
-    - [ ] 음수가 포함될 경우 `IllegalArgumentException`을 발생시킨다.
-    - [ ] 숫자가 아닌 값이 들어오면 `IllegalArgumentException`을 발생시킨다.
+- [ ] 빈 입력일 경우 빈 리스트를 반환한다.
+- [ ] 여러 구분자가 섞여 있어도 모두 적용된다.
+
+## 2-2. 숫자 검증 및 변환 (NumberValidator)
+
+- [ ] 각 토큰이 올바른 정수인지 검증한다.
+    - [ ] 음수가 포함되면 `IllegalArgumentException` 발생
+    - [ ] 0이 포함되면 `IllegalArgumentException` 발생
+    - [ ] 선행 0이 포함되면 `IllegalArgumentException` 발생
+    - [ ] 숫자가 아닌 값이 포함되면 `IllegalArgumentException` 발생
+    - [ ] 공백이 포함된 값은 `IllegalArgumentException` 발생
+- [ ] 검증이 끝난 숫자를 양의 정수로 변환한다.
 
 ### 3. **계산 (Calculation)**
 
 - [ ] 추출된 숫자들을 모두 더해서 반환한다.
+- [ ] 입력 문자열이 비어있으면 합계는 0을 반환한다.
 
 <br/>
 
