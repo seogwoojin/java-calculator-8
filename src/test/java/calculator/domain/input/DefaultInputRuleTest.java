@@ -1,4 +1,4 @@
-package calculator.domain;
+package calculator.domain.input;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
