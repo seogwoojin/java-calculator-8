@@ -23,13 +23,13 @@
 
 ## 2-2. 숫자 검증 및 변환 (NumberValidator)
 
-- [ ] 각 토큰이 올바른 정수인지 검증한다.
-    - [ ] 음수가 포함되면 `IllegalArgumentException` 발생
-    - [ ] 0이 포함되면 `IllegalArgumentException` 발생
-    - [ ] 선행 0이 포함되면 `IllegalArgumentException` 발생
-    - [ ] 숫자가 아닌 값이 포함되면 `IllegalArgumentException` 발생
-    - [ ] 공백이 포함된 값은 `IllegalArgumentException` 발생
-- [ ] 검증이 끝난 숫자를 양의 정수로 변환한다.
+- [X] 각 토큰이 올바른 정수인지 검증한다.
+    - [X] 음수가 포함되면 `IllegalArgumentException` 발생
+    - [X] 0이 포함되면 `IllegalArgumentException` 발생
+    - [X] 선행 0이 포함되면 `IllegalArgumentException` 발생
+    - [X] 숫자가 아닌 값이 포함되면 `IllegalArgumentException` 발생
+    - [X] 공백이 포함된 값은 `IllegalArgumentException` 발생
+- [X] 검증이 끝난 숫자를 양의 정수로 변환한다.
 
 ### 3. **계산 (Calculation)**
 
