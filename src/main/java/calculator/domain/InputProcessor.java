@@ -1,12 +1,10 @@
 package calculator.domain;
 
-import java.util.List;
+import java.util.Set;
 
 public class InputProcessor {
 
-    private static final List<String> DEFAULT_DELIMITERS = List.of(",", ":");
-
-    public static ParsedInput parseInput(String input) {
-        return new ParsedInput(input, DEFAULT_DELIMITERS);
+    public ParsedInput parseInput(String input) {
+        return new ParsedInput(input, Set.of());
     }
 }

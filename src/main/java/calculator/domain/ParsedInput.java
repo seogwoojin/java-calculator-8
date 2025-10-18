@@ -1,6 +1,6 @@
 package calculator.domain;
 
-import java.util.List;
+import java.util.Set;
 
-public record ParsedInput(String numbers, List<String> delimiters) {
+public record ParsedInput(String numbers, Set<String> delimiters) {
 }
