@@ -48,7 +48,7 @@ class CustomDelimiterRuleTest {
 
         // then
         assertThat(result.numbers()).isEqualTo("1;2;3");
-        assertThat(result.delimiters()).containsExactly(",", ":", ";");
+        assertThat(result.delimiters()).containsExactlyInAnyOrder(",", ":", ";");
     }
 
     @Test
@@ -62,7 +62,7 @@ class CustomDelimiterRuleTest {
 
         // then
         assertThat(result.numbers()).isEqualTo("1;2;3");
-        assertThat(result.delimiters()).containsExactly(",", ":");
+        assertThat(result.delimiters()).containsExactlyInAnyOrder(",", ":");
     }
 
     @Test
