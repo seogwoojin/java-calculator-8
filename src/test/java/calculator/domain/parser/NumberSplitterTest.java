@@ -11,6 +11,21 @@ class NumberSplitterTest {
 
     @Test
     @DisplayName("기본 구분자로 숫자를 분리한다")
+    void splitEmptyWithDefaultDelimiters() {
+        // given
+        String input = "";
+        Set<String> delimiters = Set.of(",", ":");
+
+        // when
+        int[] result = NumberSplitter.parse(input, delimiters);
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+
+    @Test
+    @DisplayName("기본 구분자로 숫자를 분리한다")
     void splitWithDefaultDelimiters() {
         // given
         String input = "1,2:3";
