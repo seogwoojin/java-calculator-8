@@ -7,13 +7,15 @@ import java.util.Set;
  */
 public class DefaultInputRule implements InputRule {
 
+    private static final Set<String> DEFAULT_DELIMITERS = Set.of(",", ":");
+
     @Override
     public boolean supports(String input) {
-        return true;
+        return true; // 나머지 전부 처리
     }
 
     @Override
     public ParsedInput parse(String input) {
-        return new ParsedInput("", Set.of());
+        return new ParsedInput(input, DEFAULT_DELIMITERS);
     }
 }
