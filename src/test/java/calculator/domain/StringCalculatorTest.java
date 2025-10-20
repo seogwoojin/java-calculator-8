@@ -47,7 +47,7 @@ class StringCalculatorTest {
     @DisplayName("커스텀 구분자를 지원한다")
     void customDelimiter_returnsSum() {
         // given
-        String input = "//;\n1;2;3";
+        String input = "//;\\n1;2;3";
 
         // when
         int result = calculator.calculate(input);
