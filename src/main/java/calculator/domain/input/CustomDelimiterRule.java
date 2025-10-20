@@ -17,6 +17,7 @@ public class CustomDelimiterRule implements InputRule {
     @Override
     public ParsedInput parse(String input) {
         Matcher matcher = CUSTOM_PATTERN.matcher(input);
+        matcher.matches();
 
         String custom = matcher.group(1);
         if (Character.isDigit(custom.charAt(0))) {
