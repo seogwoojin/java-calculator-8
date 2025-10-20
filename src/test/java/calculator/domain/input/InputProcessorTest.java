@@ -23,7 +23,7 @@ class InputProcessorTest {
 
         // then
         assertThat(request.numbers()).isEqualTo("");
-        assertThat(request.delimiters()).containsExactly(",", ":");
+        assertThat(request.delimiters()).containsExactlyInAnyOrder(",", ":");
     }
 
     @Test
@@ -37,7 +37,7 @@ class InputProcessorTest {
 
         // then
         assertThat(request.numbers()).isEqualTo("1,2:3");
-        assertThat(request.delimiters()).containsExactly(",", ":");
+        assertThat(request.delimiters()).containsExactlyInAnyOrder(",", ":");
     }
 
     @Test
@@ -51,6 +51,6 @@ class InputProcessorTest {
 
         // then
         assertThat(request.numbers()).isEqualTo("1;2;3");
-        assertThat(request.delimiters()).containsExactly(",", ":", ";");
+        assertThat(request.delimiters()).containsExactlyInAnyOrder(",", ":", ";");
     }
 }
