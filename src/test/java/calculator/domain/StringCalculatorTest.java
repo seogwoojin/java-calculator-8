@@ -1,7 +1,6 @@
 package calculator.domain;
 
 import calculator.domain.input.CustomDelimiterRule;
-import calculator.domain.input.DefaultInputRule;
 import calculator.domain.input.InputProcessor;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -14,7 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 class StringCalculatorTest {
 
     private final StringCalculator calculator = new StringCalculator(new InputProcessor(
-            List.of(new CustomDelimiterRule(), new DefaultInputRule())
+            List.of(new CustomDelimiterRule())
     ));
 
     @Test

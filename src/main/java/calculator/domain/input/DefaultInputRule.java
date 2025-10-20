@@ -5,7 +5,7 @@ import java.util.Set;
 /**
  * 커스텀 구분자를 충족시키지 않는 모든 문자
  */
-public class DefaultInputRule implements InputRule {
+class DefaultInputRule implements InputRule {
 
     private static final Set<String> DEFAULT_DELIMITERS = Set.of(",", ":");
 

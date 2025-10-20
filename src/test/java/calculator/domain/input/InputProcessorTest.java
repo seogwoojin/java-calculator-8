@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class InputProcessorTest {
 
     private final InputProcessor processor = new InputProcessor(
-            List.of(new CustomDelimiterRule(), new DefaultInputRule())
+            List.of(new CustomDelimiterRule())
     );
 
     @Test

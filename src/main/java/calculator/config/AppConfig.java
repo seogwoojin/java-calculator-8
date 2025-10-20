@@ -2,7 +2,6 @@ package calculator.config;
 
 import calculator.domain.StringCalculator;
 import calculator.domain.input.CustomDelimiterRule;
-import calculator.domain.input.DefaultInputRule;
 import calculator.domain.input.InputProcessor;
 import calculator.domain.input.InputRule;
 import calculator.external.InputView;
@@ -12,8 +11,7 @@ import java.util.List;
 public class AppConfig {
     public StringCalculator stringCalculator() {
         List<InputRule> rules = List.of(
-                new CustomDelimiterRule(),
-                new DefaultInputRule()
+                new CustomDelimiterRule()
         );
         return new StringCalculator(new InputProcessor(rules));
     }
