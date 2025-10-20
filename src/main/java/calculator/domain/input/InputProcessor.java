@@ -3,11 +3,11 @@ package calculator.domain.input;
 import java.util.List;
 
 public class InputProcessor {
+    private final List<InputRule> rules;
 
-    private final List<InputRule> rules = List.of(
-            new CustomDelimiterRule(),
-            new DefaultInputRule()
-    );
+    public InputProcessor(List<InputRule> rules) {
+        this.rules = rules;
+    }
 
     public ParsedInput parseInput(String input) {
         return rules.stream()
