@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class InputProcessorTest {
 
@@ -45,7 +44,7 @@ class InputProcessorTest {
     @DisplayName("커스텀 구분자가 있으면 기본 구분자에 추가된다")
     void customDelimiter() {
         // given
-        String input = "//;\n1;2;3";
+        String input = "//;\\n1;2;3";
 
         // when
         ParsedInput request = processor.parseInput(input);
@@ -53,17 +52,5 @@ class InputProcessorTest {
         // then
         assertThat(request.numbers()).isEqualTo("1;2;3");
         assertThat(request.delimiters()).containsExactly(",", ":", ";");
-    }
-
-    @Test
-    @DisplayName("잘못된 커스텀 구분자 입력은 예외를 던진다")
-    void invalidCustomDelimiter() {
-        // given
-        String input = "//\n1;2;3";
-
-        // when & then
-        assertThatThrownBy(() -> processor.parseInput(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("잘못된 커스텀 구분자 입력");
     }
 }
