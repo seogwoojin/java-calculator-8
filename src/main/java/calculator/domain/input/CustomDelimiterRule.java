@@ -19,6 +19,9 @@ public class CustomDelimiterRule implements InputRule {
         Matcher matcher = CUSTOM_PATTERN.matcher(input);
 
         String custom = matcher.group(1);
+        if (Character.isDigit(custom.charAt(0))) {
+            throw new IllegalArgumentException("숫자는 구분자로 사용할 수 없습니다: " + custom);
+        }
 
         Set<String> delimiters = new HashSet<>(Delimiters.DEFAULT);
         delimiters.add(custom);
