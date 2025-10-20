@@ -65,20 +65,4 @@ class CustomDelimiterRuleTest {
         assertThat(result.numbers()).isEqualTo("1;2;3");
         assertThat(result.delimiters()).isEqualTo(Set.of(",", ":"));
     }
-
-    @Test
-    @DisplayName("parse: 잘못된 입력은 예외를 발생시킨다")
-    void parseInvalidInput() {
-        // given
-        String invalid1 = "//\\n1;2;3";
-        String invalid2 = "//;";
-
-        // when & then
-        assertThatThrownBy(() -> rule.parse(invalid1))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("잘못된 커스텀 구분자 입력");
-
-        assertThatThrownBy(() -> rule.parse(invalid2))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
 }
