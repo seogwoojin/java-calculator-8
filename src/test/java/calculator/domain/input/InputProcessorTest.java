@@ -1,6 +1,6 @@
 package calculator.domain.input;
 
-import java.util.List;
+import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +23,7 @@ class InputProcessorTest {
 
         // then
         assertThat(request.numbers()).isEqualTo("");
-        assertThat(request.delimiters()).containsExactlyInAnyOrder(",", ":");
+        assertThat(request.delimiters()).isEqualTo(Set.of(",", ":"));
     }
 
     @Test
@@ -37,7 +37,7 @@ class InputProcessorTest {
 
         // then
         assertThat(request.numbers()).isEqualTo("1,2:3");
-        assertThat(request.delimiters()).containsExactlyInAnyOrder(",", ":");
+        assertThat(request.delimiters()).isEqualTo(Set.of(",", ":"));
     }
 
     @Test
@@ -51,6 +51,6 @@ class InputProcessorTest {
 
         // then
         assertThat(request.numbers()).isEqualTo("1;2;3");
-        assertThat(request.delimiters()).containsExactlyInAnyOrder(",", ":", ";");
+        assertThat(request.delimiters()).isEqualTo(Set.of(",", ":", ";"));
     }
 }

@@ -1,5 +1,6 @@
 package calculator.domain.input;
 
+import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -48,7 +49,7 @@ class CustomDelimiterRuleTest {
 
         // then
         assertThat(result.numbers()).isEqualTo("1;2;3");
-        assertThat(result.delimiters()).containsExactlyInAnyOrder(",", ":", ";");
+        assertThat(result.delimiters()).isEqualTo(Set.of(",", ":", ";"));
     }
 
     @Test
@@ -62,7 +63,7 @@ class CustomDelimiterRuleTest {
 
         // then
         assertThat(result.numbers()).isEqualTo("1;2;3");
-        assertThat(result.delimiters()).containsExactlyInAnyOrder(",", ":");
+        assertThat(result.delimiters()).isEqualTo(Set.of(",", ":"));
     }
 
     @Test
