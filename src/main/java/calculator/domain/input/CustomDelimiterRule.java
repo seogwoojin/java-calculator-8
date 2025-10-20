@@ -4,9 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CustomDelimiterRule implements InputRule {
-
-    private static final Set<String> DEFAULT_DELIMITERS = Set.of(",", ":");
-
+    
     @Override
     public boolean supports(String input) {
         // "//" + (임의의 문자 1개) + "\n" 로 시작하는 경우만 지원
@@ -22,7 +20,7 @@ public class CustomDelimiterRule implements InputRule {
 
         String custom = parts[0].substring(2);
 
-        Set<String> all = new HashSet<>(DEFAULT_DELIMITERS);
+        Set<String> all = new HashSet<>(Delimiters.DEFAULT);
         all.add(custom);
         return new ParsedInput(parts[1], all);
     }
