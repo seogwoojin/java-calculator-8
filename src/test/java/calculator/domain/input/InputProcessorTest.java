@@ -1,5 +1,6 @@
 package calculator.domain.input;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +9,9 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class InputProcessorTest {
 
-    private final InputProcessor processor = new InputProcessor();
+    private final InputProcessor processor = new InputProcessor(
+            List.of(new CustomDelimiterRule(), new DefaultInputRule())
+    );
 
     @Test
     @DisplayName("빈 입력이면 numbers는 빈 문자열, delimiters는 기본 구분자만 가진다")

@@ -1,6 +1,9 @@
 package calculator.domain;
 
+import calculator.domain.input.CustomDelimiterRule;
+import calculator.domain.input.DefaultInputRule;
 import calculator.domain.input.InputProcessor;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,7 +13,9 @@ import org.junit.jupiter.api.DisplayName;
 
 class StringCalculatorTest {
 
-    private final StringCalculator calculator = new StringCalculator(new InputProcessor());
+    private final StringCalculator calculator = new StringCalculator(new InputProcessor(
+            List.of(new CustomDelimiterRule(), new DefaultInputRule())
+    ));
 
     @Test
     @DisplayName("빈 문자열은 0을 반환한다")
