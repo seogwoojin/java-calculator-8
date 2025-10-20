@@ -1,20 +1,20 @@
-package calculator.domain;
+package calculator.domain.util;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SumCalculatorTest {
+class CalculatorUtilsTest {
 
     @Test
     @DisplayName("숫자 리스트의 합을 계산한다")
     void sumNumbers() {
         // Given
-        int[] numbers = new int[]{1,2,3};
+        int[] numbers = new int[]{1, 2, 3};
 
         // When
-        int result = SumCalculator.sum(numbers);
+        int result = CalculatorUtils.sum(numbers);
 
         // Then
         assertThat(result).isEqualTo(6);
@@ -27,7 +27,7 @@ class SumCalculatorTest {
         int[] numbers = new int[]{};
 
         // When
-        int result = SumCalculator.sum(numbers);
+        int result = CalculatorUtils.sum(numbers);
 
         // Then
         assertThat(result).isEqualTo(0);

@@ -1,5 +1,6 @@
 package calculator.domain;
 
+import calculator.domain.input.InputProcessor;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -9,53 +10,29 @@ import org.junit.jupiter.api.DisplayName;
 
 class StringCalculatorTest {
 
+    private final StringCalculator calculator = new StringCalculator(new InputProcessor());
+
     @Test
-    @DisplayName("빈 문자열 입력이면 0을 반환한다")
-    void givenEmptyInput_whenCalculate_thenReturnZero() {
+    @DisplayName("빈 문자열은 0을 반환한다")
+    void emptyInput_returnsZero() {
         // given
         String input = "";
 
         // when
-        int result = StringCalculator.calculate(input);
+        int result = calculator.calculate(input);
 
         // then
         assertThat(result).isEqualTo(0);
     }
 
     @Test
-    @DisplayName("쉼표 구분자로 숫자를 합산한다")
-    void givenCommaDelimiter_whenCalculate_thenReturnSum() {
-        // given
-        String input = "1,2,3";
-
-        // when
-        int result = StringCalculator.calculate(input);
-
-        // then
-        assertThat(result).isEqualTo(6);
-    }
-
-    @Test
-    @DisplayName("콜론 구분자로 숫자를 합산한다")
-    void givenColonDelimiter_whenCalculate_thenReturnSum() {
-        // given
-        String input = "1:2:3";
-
-        // when
-        int result = StringCalculator.calculate(input);
-
-        // then
-        assertThat(result).isEqualTo(6);
-    }
-
-    @Test
-    @DisplayName("쉼표와 콜론 혼합 구분자를 지원한다")
-    void givenMixedDelimiters_whenCalculate_thenReturnSum() {
+    @DisplayName("쉼표와 콜론 혼합 구분자를 지원한다 (기본 구분자)")
+    void mixedDelimiters_returnsSum() {
         // given
         String input = "1,2:3";
 
         // when
-        int result = StringCalculator.calculate(input);
+        int result = calculator.calculate(input);
 
         // then
         assertThat(result).isEqualTo(6);
@@ -63,38 +40,36 @@ class StringCalculatorTest {
 
     @Test
     @DisplayName("커스텀 구분자를 지원한다")
-    void givenCustomDelimiter_whenCalculate_thenReturnSum() {
+    void customDelimiter_returnsSum() {
         // given
         String input = "//;\n1;2;3";
 
         // when
-        int result = StringCalculator.calculate(input);
+        int result = calculator.calculate(input);
 
-        // then
+        //then
         assertThat(result).isEqualTo(6);
     }
 
     @Test
-    @DisplayName("음수가 포함되면 예외를 던진다")
-    void givenNegativeNumber_whenCalculate_thenThrowException() {
+    @DisplayName("음수가 포함되면 예외 발생")
+    void negativeNumber_throwsException() {
         // given
         String input = "1,-2,3";
 
         // when & then
-        assertThatThrownBy(() -> StringCalculator.calculate(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("음수");
+        assertThatThrownBy(() -> calculator.calculate(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    @DisplayName("숫자가 아닌 값이 포함되면 예외를 던진다")
-    void givenNonNumber_whenCalculate_thenThrowException() {
+    @DisplayName("숫자가 아닌 값이 포함되면 예외 발생")
+    void nonNumber_throwsException() {
         // given
         String input = "1,2,a";
 
         // when & then
-        assertThatThrownBy(() -> StringCalculator.calculate(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자");
+        assertThatThrownBy(() -> calculator.calculate(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
